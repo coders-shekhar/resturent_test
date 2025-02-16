@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 
-const mongoURI = "mongodb://127.0.0.1:27017/resturent";
+// const mongoURI = "mongodb://127.0.0.1:27017/resturent";
+const mongoURI = process.env.mongoURI;
 
 mongoose.connect(mongoURI);
 
@@ -10,7 +12,7 @@ db.on("connected", ()=>{
     console.log("Database Connection Successful!!!")
 })
 db.on("error", ()=>{
-    console.log(error);
+    console.log("error");
 })
 db.on("disconnected", ()=>{
     console.log("Database disconnected");
